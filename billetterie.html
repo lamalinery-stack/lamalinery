@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Billetterie · Les BB du RAP Édition 2 · La Malinery</title>
+  <meta name="description" content="Achète ton billet pour Les BB du RAP Édition 2, vendredi 18 décembre 2026 au BlackOut, à La Rochelle : open mic, artistes et vote du public. 5 €, paiement sécurisé par Stripe." />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="canonical" href="https://lamalinery.com/billetterie.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="La Malinery" />
+  <meta property="og:title" content="Billetterie · Les BB du RAP Édition 2 · La Malinery" />
+  <meta property="og:description" content="Achète ton billet pour Les BB du RAP Édition 2, vendredi 18 décembre 2026 au BlackOut, à La Rochelle : open mic, artistes et vote du public. 5 €, paiement sécurisé par Stripe." />
+  <meta property="og:image" content="https://lamalinery.com/assets/img/og-image.jpg" />
+  <link rel="icon" href="/assets/img/logo-96.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=70402fb7" />
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="/" aria-label="La Malinery, accueil"><img src="/assets/img/logo-96.png" alt="" width="40" height="40" />LA MALINERY</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/artistes.html">Artistes</a>
+      <a href="/evenements.html" aria-current="page">Événements</a>
+      <a href="/tarifs.html">Services &amp; Tarifs</a>
+      <a href="/blog.html">Blog / Ressources</a>
+      <a href="/contact.html">Contact</a>
+      <a class="btn btn--primary" href="/contact.html?sujet=rejoindre">Rejoindre</a>
+    </nav>
+  </div>
+</header>
+<main id="contenu" data-page="billetterie" data-version="0">
+<style>
+  .ticket { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: clamp(24px, 4vw, 36px); box-shadow: 0 40px 100px -40px rgba(217, 70, 239, 0.45); }
+  .ticket__rows { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 14px; }
+  .ticket__rows li { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .ticket__rows li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .ticket__rows span { color: var(--muted); }
+  .ticket__rows b { text-align: right; }
+  .ticket__price { font-family: var(--display); font-size: clamp(2.2rem, 6vw, 3rem); font-weight: 900; line-height: 1; margin: 0 0 6px; }
+  .ticket .btn { width: 100%; justify-content: center; }
+  .ticket .btn[aria-disabled="true"] { opacity: 0.55; pointer-events: none; box-shadow: none; }
+  .ticket__note { margin: 16px 0 0; font-size: 0.9rem; }
+  .merci { display: none; margin-bottom: 28px; padding: 18px 22px; border-radius: 18px; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.4); }
+  .merci.is-on { display: block; }
+  .merci p { margin: 0; }
+</style>
+
+<section class="page-hero"><div class="wrap"><span class="kicker reveal">Billetterie</span><h1 class="reveal">Les BB du RAP <span class="grad-text">Édition 2</span></h1><p class="lead reveal">La scène où tout commence revient au BlackOut : des artistes qui kickent, un open mic ouvert à tous, et un public qui vote en direct pour élire son coup de cœur.</p></div></section>
+
+<section class="section section--alt" id="billet"><div class="wrap split"><div>
+  <div class="merci" id="merci" role="status"><p><strong>Merci, ton paiement est validé !</strong> Ton reçu Stripe arrive par e-mail : garde-le, il fait office de billet à l'entrée.</p></div>
+  <div class="ticket reveal">
+    <p class="ticket__price">5 €</p>
+    <p class="muted" style="margin-top:0">par personne · entrée + vote du public</p>
+    <ul class="ticket__rows">
+      <li><span>Date</span><b>Vendredi 18 décembre 2026</b></li>
+      <li><span>Ouverture</span><b>20h30</b></li>
+      <li><span>Lieu</span><b>Le BlackOut, La Rochelle</b></li>
+    </ul>
+    <!-- Lien de paiement Stripe (Payment Link) : -->
+    <a class="btn btn--primary" id="payer" href="https://buy.stripe.com/bJefZhdBL0FKd3H6KO7g400" rel="noopener">Payer mon billet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <p class="ticket__note muted" id="payer-note">Paiement sécurisé par Stripe (carte bancaire, Apple Pay, Google Pay). Tu reçois ton reçu par e-mail : présente-le à l'entrée.</p>
+  </div>
+</div><figure class="photo reveal"><img src="/assets/img/photos/bb-du-rap-groupe.webp" alt="Les artistes et l'équipe d'une soirée Les BB du RAP" loading="lazy" width="1600" height="1200" /></figure></div></section>
+
+<section class="section"><div class="wrap"><div class="cta reveal"><h2>Tu veux monter sur scène ?</h2><p class="lead">L'open mic est ouvert à tous les artistes. Écris-nous pour réserver ton passage.</p><div class="btn-row"><a class="btn btn--primary" href="/contact.html?sujet=rejoindre&amp;profil=artiste">Je veux passer sur scène</a><a class="btn btn--ghost" href="/evenements.html">Tous les événements</a></div></div></div></section>
+
+<script>
+  (function () {
+    var payer = document.getElementById("payer");
+    if (!/^https:\/\/(buy|checkout)\.stripe\.com\//.test(payer.getAttribute("href"))) {
+      payer.removeAttribute("href");
+      payer.setAttribute("aria-disabled", "true");
+      payer.firstChild.nodeValue = "Billetterie bientôt ouverte ";
+      document.getElementById("payer-note").textContent = "Les billets seront en vente ici très bientôt.";
+    }
+    if (new URLSearchParams(location.search).has("merci")) document.getElementById("merci").classList.add("is-on");
+  })();
+</script>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo-96.png" alt="" width="40" height="40" />LA MALINERY</a>
+        <p class="muted" style="margin-top:18px;max-width:34ch" data-pied>La plateforme des artistes de demain. SAS fondée à La Rochelle par Pauline &amp; Naïma.</p>
+      </div>
+      <div>
+        <h4>La Malinery</h4>
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/artistes.html">Artistes</a></li>
+          <li><a href="/evenements.html">Événements</a></li>
+          <li><a href="/tarifs.html">Services &amp; Tarifs</a></li>
+          <li><a href="/blog.html">Blog / Ressources</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rejoindre</h4>
+        <ul>
+          <li><a href="/contact.html?sujet=rejoindre&amp;profil=artiste">Je suis artiste</a></li>
+          <li><a href="/contact.html?sujet=rejoindre&amp;profil=creatif">Je suis créatif / prestataire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="/cgu.html">CGU</a></li>
+          <li><a href="/confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> La Malinery · La Rochelle</span>
+    </div>
+  </div>
+</footer>
+<script>window.MALINERY = {"base":"https://eqeaxpjyxflxysthggng.supabase.co","cle":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxZWF4cGp5eGZseHlzdGhnZ25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxMjc2OTMsImV4cCI6MjEwODcwMzY5M30.zZ5yZODOLVkq4Ppq7OYs-X2wbZlOANYhPqPIevu6ylg","app":"https://malinery.pragmatt.com"};</script>
+<script src="/assets/js/blocs.js?v=3dc99b87" defer></script>
+<script src="/assets/js/main.js?v=c706770f" defer></script>
+</body>
+</html>

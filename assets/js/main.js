@@ -228,7 +228,7 @@ function initContenu() {
     }
   });
 
-  // Formulaire de contact → table contact_messages (lisible uniquement par les admins)
+  // Formulaire de contact → app (/api/contact) : table contact_messages + alerte e-mail à l'équipe
   const form = document.querySelector("#contact-form");
   if (form) {
     const status = form.querySelector(".form-status");
@@ -271,9 +271,10 @@ function initContenu() {
       btn.disabled = true;
       btn.textContent = "Envoi…";
       try {
-        const res = await api("contact_messages", {
+        // Passe par l'app : le message est enregistré et l'équipe est prévenue par e-mail
+        const res = await fetch(`${APP_URL}/api/contact`, {
           method: "POST",
-          headers: { "Content-Type": "application/json", Prefer: "return=minimal" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
         if (!res.ok) throw new Error(await res.text());

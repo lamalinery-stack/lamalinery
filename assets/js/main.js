@@ -39,9 +39,9 @@ document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new D
 // Les suggestions arrivent dans le portail dev de l'app (/admin/portail), table feedback.
 if (document.body.dataset.feedback !== undefined) {
   const KINDS = [
-    ["idee", "💡 Idée"],
-    ["bug", "🐞 Problème"],
-    ["question", "❓ Question"],
+    ["idee", "Idée"],
+    ["bug", "Problème"],
+    ["question", "Question"],
   ];
   const wrap = document.createElement("div");
   wrap.className = "fb";
@@ -206,7 +206,7 @@ function initContenu() {
           <div class="event__date"><b>${day}</b><small>${escapeHtml(month)}</small></div>
           <div>
             <h3>${escapeHtml(e.title)}</h3>
-            <div class="event__meta"><span>📍 ${escapeHtml(e.venue)}</span><span>🕘 ${escapeHtml(full)} · ${time}</span>${e.open_mic_capacity > 0 ? "<span>🎤 Open Mic</span>" : ""}</div>
+            <div class="event__meta"><span>${escapeHtml(e.venue)}</span><span>${escapeHtml(full)} à ${time}</span>${e.open_mic_capacity > 0 ? "<span>Open mic</span>" : ""}</div>
           </div>
           <div class="event__price">${euro(e.ticket_price)}</div>
         </div>`;
@@ -215,16 +215,16 @@ function initContenu() {
             <div class="event__date"><b>${day}</b><small>${escapeHtml(month)}</small></div>
             <div>
               <h3>${escapeHtml(e.title)}</h3>
-              <div class="event__meta"><span>📍 ${escapeHtml(e.venue)}</span><span>🕘 ${escapeHtml(full)} · ${time}</span>${e.open_mic_capacity > 0 ? "<span>🎤 Open Mic</span>" : ""}</div>
+              <div class="event__meta"><span>${escapeHtml(e.venue)}</span><span>${escapeHtml(full)} à ${time}</span>${e.open_mic_capacity > 0 ? "<span>Open mic</span>" : ""}</div>
             </div>
-            <div class="event__price">${euro(e.ticket_price)}<small>Réserver →</small></div>
+            <div class="event__price">${euro(e.ticket_price)}<small>Réserver</small></div>
           </a>`;
         })
         .join("");
     } catch {
       list.innerHTML = sansLien
         ? `<p class="muted">Impossible de charger la programmation pour le moment.</p>`
-        : `<p class="muted">Impossible de charger la programmation pour le moment. <a class="accent" href="${APP_URL}/events" target="_blank" rel="noopener">Voir les soirées sur l'app →</a></p>`;
+        : `<p class="muted">Impossible de charger la programmation pour le moment. <a class="accent" href="${APP_URL}/events" target="_blank" rel="noopener">Voir les soirées sur l'app</a></p>`;
     }
   });
 
@@ -317,13 +317,13 @@ function initContenu() {
           return `<a class="member reveal is-visible" href="${APP_URL}/annuaire/${encodeURIComponent(r.slug)}" target="_blank" rel="noopener">
             <span class="member__avatar">${avatar}</span>
             <span class="member__body"><b>${esc(r.display_name)}${r.plan === "premium" ? ' <span class="member__badge">Premium</span>' : ""}</b>
-            <small>${r.kind === "artist" ? "" : `${esc(kinds[r.kind])} · `}${esc(hubs[r.hub] ?? r.hub)}${r.city ? ` · ${esc(r.city)}` : ""}</small>
+            <small>${r.kind === "artist" ? "" : `${esc(kinds[r.kind])}, `}${esc(hubs[r.hub] ?? r.hub)}${r.city ? `, ${esc(r.city)}` : ""}</small>
             ${r.tags?.length ? `<span class="member__tags">${r.tags.slice(0, 3).map((t) => `#${esc(t)}`).join(" ")}</span>` : ""}</span>
           </a>`;
         })
         .join("");
     } catch {
-      box.innerHTML = `<p class="muted">L'annuaire est momentanément indisponible. <a class="accent" href="${APP_URL}/annuaire" target="_blank" rel="noopener">Ouvrir l'annuaire →</a></p>`;
+      box.innerHTML = `<p class="muted">L'annuaire est momentanément indisponible. <a class="accent" href="${APP_URL}/annuaire" target="_blank" rel="noopener">Ouvrir l'annuaire</a></p>`;
     }
   });
 

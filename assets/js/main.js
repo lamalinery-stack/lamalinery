@@ -206,7 +206,7 @@ function initContenu() {
           <div class="event__date"><b>${day}</b><small>${escapeHtml(month)}</small></div>
           <div>
             <h3>${escapeHtml(e.title)}</h3>
-            <div class="event__meta"><span>${escapeHtml(e.venue)}</span><span>${escapeHtml(full)} à ${time}</span>${e.open_mic_capacity > 0 ? "<span>Open mic</span>" : ""}</div>
+            <div class="event__meta"><span>${escapeHtml(e.venue)} - ${escapeHtml(full)} à ${time}${e.open_mic_capacity > 0 ? " - Open mic" : ""}</span></div>
           </div>
           <div class="event__price">${euro(e.ticket_price)}</div>
         </div>`;
@@ -215,7 +215,7 @@ function initContenu() {
             <div class="event__date"><b>${day}</b><small>${escapeHtml(month)}</small></div>
             <div>
               <h3>${escapeHtml(e.title)}</h3>
-              <div class="event__meta"><span>${escapeHtml(e.venue)}</span><span>${escapeHtml(full)} à ${time}</span>${e.open_mic_capacity > 0 ? "<span>Open mic</span>" : ""}</div>
+              <div class="event__meta"><span>${escapeHtml(e.venue)} - ${escapeHtml(full)} à ${time}${e.open_mic_capacity > 0 ? " - Open mic" : ""}</span></div>
             </div>
             <div class="event__price">${euro(e.ticket_price)}<small>Réserver</small></div>
           </a>`;
